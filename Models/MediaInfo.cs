@@ -12,4 +12,25 @@
     public List<Actor> Cast { get; set; }
     public List<Genre> Genres { get; set; }
     public List<Feature> Features { get; set; }
+
+    public MediaInfo(string year, bool isNew, int? filmID, Film? film, int? tVSeriesId, TVSeries? tVSeries, List<Actor> cast, List<Genre> genres, List<Feature> features)
+    {
+        int id = 0; 
+        Id = id;
+        Year = year;
+        IsNew = isNew;
+        FilmID = filmID;
+        Film = film;
+        TVSeriesId = tVSeriesId;
+        TVSeries = tVSeries;
+        Cast = cast;
+        Genres = genres;
+        Features = features;
+        id++;
+    }
+
+    public MediaInfo()
+    {
+
+    }
 }

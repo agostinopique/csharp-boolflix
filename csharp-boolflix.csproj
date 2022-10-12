@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Nuova cartella\**" />
+    <Content Remove="Views\Nuova cartella\**" />
+    <EmbeddedResource Remove="Views\Nuova cartella\**" />
+    <None Remove="Views\Nuova cartella\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="InfoProject.txt" />
   </ItemGroup>
 

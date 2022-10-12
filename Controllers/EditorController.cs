@@ -18,7 +18,8 @@ namespace csharp_boolflix.Controllers
         }
         public IActionResult Film()
         {
-            return View();
+            List<Film> film = _db.Films.ToList();
+            return View(film);
         }
 
         public IActionResult TVSeries()

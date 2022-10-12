@@ -4,4 +4,9 @@ public class Film : MediaContent
 {
     public MediaInfo MediaInfo { get; set; }
 
+    public Film()
+    {
+
+    }
+
 }

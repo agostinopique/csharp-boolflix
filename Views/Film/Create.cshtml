@@ -5,3 +5,89 @@
 
 <h1>Add a movie to your system</h1>
 
+<form asp-controller="Film" asp-action="Store" method="post">
+    @Html.AntiForgeryToken()
+
+    <div class="mb-3">
+        <label for="name" class="form-label">Movie Title</label>
+        <input class="form-control" id="name" asp-for="Film.Title">
+        <span class="text-danger" asp-validation-for="Film.Title"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="name" class="form-label">Movie Description</label>
+        <textarea class="form-control" id="name" asp-for="Film.Descrizione"></textarea>
+        <span class="text-danger" asp-validation-for="Film.Descrizione"></span>
+    </div>
+    
+    <div class="mb-3">
+        <label for="name" class="form-label">Movie Duration</label>
+        <textarea class="form-control" id="name" asp-for="Film.Durata"></textarea>
+        <span class="text-danger" asp-validation-for="Film.Durata"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="genres" class="form-label">Genres</label>
+        <select class="form-select form-select-lg mb-3" id="genres" asp-for="Film.MediaInfo.Genres">
+            @foreach (Genre genre in Model.Genres)
+            {
+                @if (Model.Genres.Contains(genre))
+                {
+                    <option value="@genre.Id" selected>@genre.Name</option>
+                }
+                else
+                {
+                    <option value="@genre.Id">@genre.Name</option>
+                }
+
+
+                @*<option value="@genre.Id">@genre.Name</option>*@
+
+            }
+        </select>
+    </div>
+    
+    <div class="mb-3">
+        <label for="features" class="form-label">Features</label>
+        <select class="form-select form-select-lg mb-3" id="features" asp-for="Film.MediaInfo.Features">
+            @foreach (Feature feat in Model.Features)
+            {
+                @if (Model.Features.Contains(feat))
+                {
+                    <option value="@feat.Id" selected>@feat.Name</option>
+                }
+                else
+                {
+                    <option value="@feat.Id">@feat.Name</option>
+                }
+
+
+                @*<option value="@genre.Id">@genre.Name</option>*@
+
+            }
+        </select>
+    </div>
+    
+    <div class="mb-3">
+        <label for="actors" class="form-label">Actors</label>
+        <select class="form-select form-select-lg mb-3" id="actors" asp-for="Film.MediaInfo.Cast">
+            @foreach (Actor actor in Model.Actors)
+            {
+                @if (Model.Actors.Contains(actor))
+                {
+                    <option value="@actor.Id" selected>@actor.Name @actor.Surname</option>
+                }
+                else
+                {
+                    <option value="@actor.Id">@actor.Name @actor.Surname</option>
+                }
+
+
+                @*<option value="@genre.Id">@genre.Name</option>*@
+
+            }
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Send</button>
+</form>

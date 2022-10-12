@@ -20,5 +20,23 @@ namespace csharp_boolflix.Controllers
             filmMediainfo.Actors = _db.Actors.ToList();
             return View(filmMediainfo);
         }
+
+        public IActionResult Store(FilmMediainfo filmData)
+        {
+            if (!ModelState.IsValid)
+            {
+                filmData.Features = _db.Features.ToList();
+                filmData.Genres = _db.Genres.ToList();
+                filmData.Actors = _db.Actors.ToList();
+                return View("Create", filmData);
+            }
+
+            List<Actor> actors = new List<Actor>();
+            foreach(Actor actor in filmData.Actors)
+            {
+                Actor foundActor = _db.Actors.Where(actors => actor.Id == actor.Id).FirstOrDefault();
+                actors.Add(foundActor);
+            }
+        }
     }
 }

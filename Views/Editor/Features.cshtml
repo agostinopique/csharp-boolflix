@@ -32,8 +32,8 @@ else
                     <th scope="row">@feat.Id</th>
                     <td>@feat.Name</td>
                     <td>
-                        <a href="@Url.Action("Edit", "Feature", new {id = feat.Id})">Modifica</a>
-                        <form asp-controller="Feature" asp-action="Delete" asp-route-id="@feat.Id" method="post">
+                        <a class="btn btn-primary" href="@Url.Action("Edit", "Feature", new {id = feat.Id})">Modifica</a>
+                        <form class="d-inline" asp-controller="Feature" asp-action="Delete" asp-route-id="@feat.Id" method="post">
                             @Html.AntiForgeryToken()
                             <button type="submit" class="btn btn-danger">Elimina</button>
                         </form>

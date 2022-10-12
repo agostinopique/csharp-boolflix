@@ -1,0 +1,21 @@
+﻿@{
+    Layout = "_EditorLayout";
+    @model Actor
+}
+
+<h1>Edit Actor</h1>
+
+<form asp-controller="Actor" asp-action="Update" asp-route-id="@Model.Id" method="post">
+    @Html.AntiForgeryToken()
+    <div class="mb-3">
+        <label for="name" class="form-label">Actor Name</label>
+        <input class="form-control" id="name" asp-for="Name">
+        <span class="text-danger" asp-validation-for="Name"></span>
+    </div>
+    <div class="mb-3">
+        <label for="surname" class="form-label">Actor Surname</label>
+        <input class="form-control" id="surname" asp-for="Surname">
+        <span class="text-danger" asp-validation-for="Surname"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Send</button>
+</form>
